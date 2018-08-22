@@ -1,0 +1,12 @@
+h5py
+numexpr
+Cython
+blosc
+tables
+
+numpy
+pandas
+scipy
+scikit-learn
+
+matplotlib

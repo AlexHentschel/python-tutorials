@@ -1,0 +1,32 @@
+# Misc scratch files
+sandbox/
+
+# Pre-compiled binaries
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution and packaging artifacts
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# pyCharm project settings
+.idea
