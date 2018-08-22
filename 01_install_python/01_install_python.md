@@ -114,6 +114,7 @@ my PyCharm project configurations live in `/Users/alex/Development/Python/IDE-Pr
    when closing the main window of the PyCharm IDE, it will go back to the
    welcome screen.  
 2. You will be presented with:
+![alt text](https://github.com/AlexHentschel/python-tutorials/blob/master/figures/Project_conf_1.png)
 
 
      The project's name is implicitly determined by the tailing folder name. Hence,
