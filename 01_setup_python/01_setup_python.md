@@ -1,7 +1,10 @@
 # Installation of Python for Data Science
 
-This tutorial gives a recommendation for a data science python stack. This tutorial
-is merely a suggestion for one out of many different usefull alternatives.
+This tutorial gives a recommendation for installing and organizing a data-science python stack. 
+In the tutorial I describe a system for organizing the different components. I found that 
+this organization scheme scales particularly well when working on many different projects over time.
+It allows for different python environments and version to be used for different projects.
+However, this tutorial is merely a suggestion for one out of many different usefull alternatives.
 
 Overview:
 - The first section describes the fastest path
@@ -12,7 +15,7 @@ I will point out where you are taking shortcuts shortcuts.
 
 # Pythonic Data-Science Stack: fast route
 
-#### Install Anaconda Python
+### Install Anaconda Python
 
 For data science in python Python, you need a python interpreter plus various numerical packages.
 Continuum Analytics provides commercial images for various cloud platforms that include
@@ -93,71 +96,120 @@ Get the latest PyCharm from [jetbrains](https://www.jetbrains.com/pycharm/).
    /Users/alex/Development/Python/pycharm
    ```
 
-#### Create a PyCharm Project
+### Create a PyCharm Project
 
 When PyCharm first opens, it presents you with a welcome screen
 and prompts you create or open a project. In PyCharm, a project
 is simply a configuration that tells PyCharm which python
-packages and folders should be opened and what python environments to use to 
+packages and folders should be opened and what python environments to use to
 execute what code. A project _points_ to python code, but
- the project configuration folder itself should _not contain_ python sources. 
+ the project configuration folder itself should _not contain_ python sources.
 I generally create a new Project for each topic I am working on. In addition,
 I keep a `sandbox` project for random little experiments.
 
-As you might want to open some python sources in the context of several projects, 
-I recommend keeping the PyCharm Projects separate from the python source code. 
+As you might want to open some python sources in the context of several projects,
+I recommend keeping the PyCharm Projects separate from the python source code.
 While I check out all source code into `/Users/alex/Git/`,
 my PyCharm project configurations live in `/Users/alex/Development/Python/IDE-Project-Configurations/`.   
 
 **Creating the `sandbox` Project** (for MacOS):
-1. On the welcome screen, select `Create New Project`. Alternatively, 
+1. On the welcome screen, select `Create New Project`. Alternatively,
    when closing the main window of the PyCharm IDE, it will go back to the
    welcome screen.  
-2. You will be presented with:
-![alt text](https://github.com/AlexHentschel/python-tutorials/blob/master/figures/Project_conf_1.png)
-
-
-     The project's name is implicitly determined by the tailing folder name. Hence,
-     to create a project with the name `sandbox`, specify as folder:
+2. Your project configuration could look something like this:
+![project configuration](https://github.com/AlexHentschel/python-tutorials/blob/master/figures/Project_conf_1.png)
+   - The project's name is implicitly determined by the tailing folder name. Hence,
+     to create a project with the name `sandbox`, specify the `location`:
      ```
      /Users/alex/Development/Python/IDE-Project-Configurations/sandbox
      ```
+   - Configure the default python interpreter that will be used to
+     execute code in the project:
+     - Select `Existing Interpreter` and lick on the `...` button on the right.
+       (If you have previously already configured PyCharm to use Anaconda, it
+       should be available in the drop-down menu).
+     - In the window ![interpreter configuration](https://github.com/AlexHentschel/python-tutorials/blob/master/figures/Project_conf_2.png)
+       choose `System Interpreter` (left) and use the `...` button to select an
+       already installed python environment. You need to select the `python` executable,
+       in our example:
+       ```
+       /Users/alex/Development/Python/Python3.6-x64_Anaconda-5.2.0/bin/python
+       ```
 
-   Lets name our first project      
+### PyCharm in Action
 
-3) Configure Anaconda as an interpreter in pycharm:
+In the following, I will use the [python-tutorials repository](https://github.com/AlexHentschel/python-tutorials) as an example.
+I assume you already have cloned the repo so you can execute the provided examples.  In the following, 
+lets assume the repository to be located in `/Users/alex/Git/python-tutorials`.
 
+1. Open Pycharm and the `sandbox` project (`File` -> `Open Recent` lets you switch projects).
+2. Now, we are going to _add_ the `python-tutorials` folder to PyCharm's `sandbox` project.
+   (This merely instructs PyCharm to add the folder you choose to a list of displayed folders. 
+   Files and code remain where they are.)
+   - Go to `File` -> `Open` and select the folder `/Users/alex/Git/python-tutorials`.
+   - Now `python-tutorials` should be listed in the left of the IDE with its location on your 
+   hard disk next to it in grey print. 
 
-/Users/alex/Development/Python/Python3.6-x64_Anaconda-5.2.0/bin/python
+### The iPython console
 
+The iPython console allows you to _interactively_ execute code _while_ you are developing it.
+I find this immensely useful, specifically for data science and machine learning projects. 
 
+- Open (drouble click) the python script `python-tutorials/example_code/hello_world.py`
+- Mark all lines of code and press `Control`+`Shift`+`e`. The `Python Console` will open
+  and execute the selected code. 
+- You can open _multiple_ iPython consoles and work with them in parallel.
 
+### Interactive plotting
 
-https://www.anaconda.com/download/
+Similarly, iPython allows you to _interactively_ plot graphs. 
 
-1) dow Anaconda Python 3.6: https://www.anaconda.com/download/#macos
-
-
-
-2) create virtual environment (Python 3 already comes with everything to create a virtual environment):
-  `python -m venv --symlinks <path-to-new-virtual-environment>`
-  `source  <path-to-new-virtual-environment>/bin/activate`
-   this will change your default python to the one you activated _only in the current shell session_
-   to go back to default: `deactivate`
-   details: https://docs.python.org/3/library/venv.html (edited)
-3) In the _activated_ python environment, install tensorflow (https://www.tensorflow.org/install/install_mac):
-• Ensure pip ≥8.1 is installed:
- `easy_install -U pip`
-• install TensorFlow
- `pip3 install --upgrade tensorflow`
-• install other useful dependencies for data science
-`pip install matplotlib pandas h5py` (edited)
+- An example is given in `python-tutorials/example_code/hello_plot.py`
+- Again, execute all the lines of code using `Control`+`Shift`+`e`.
+  Now try to edit the code while *keeping the plot open*.
+  On mys system, the plot always stays in front covering up part of the
+  PhCarm editor. I found this rather irritating and counterproductive. 
+- Execute `python-tutorials/example_code/hello_plot2.py` in a _newly opened_ 
+  Python Console. In this example, we use the `TKAgg` backend for `matplotlib`
+  which fixed this behaviour for me.  
+- You can make the backend change permanent by editing your 
+ `~/.matplotlib/matplotlibrc` file. In its default configuration, your 
+  `matplotlibrc` states for MacOS
+  ```
+  backend      : macosx
+  ```
+  Change this to 
+  ```
+  backend      : TKAgg
+  ```
+ (see [here](http://matplotlib.org/users/customizing.html#the-matplotlibrc-file) for 
+  more details)  
 
 # Pythonic Data-Science Stack: best practices
 
-#### Use Miniconda as root environment
+### Use Miniconda as root environment:
 
 https://conda.io/miniconda.html
 
+### Use Virtual Python Environment 
 
-###
+**Creation of virtual environments**:
+- Python 3 already comes with everything to create a virtual environment.
+  Execute in the command line:
+  ```
+  /Users/alex/Development/Python/Python3.6-x64_Anaconda-5.2.0/bin/python
+  ```
+  Make sure you select the correct python distribution that should serve 
+  as a root. 
+- On the command line, you can select a virtual environment by  
+  ```
+  source  <path-to-new-virtual-environment>/bin/activate
+  ```
+   this will change your default python to the one you just activated, 
+   but _only in the current shell session_. 
+   Note: the command prompt will change and display the python environment. 
+   To deactivate (go back to the default python environment), type 
+   ```
+   deactivate
+   ```
+   (further reading on virtual environments: https://docs.python.org/3/library/venv.html)
