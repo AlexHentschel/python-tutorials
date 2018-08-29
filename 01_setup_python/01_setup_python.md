@@ -194,13 +194,12 @@ https://conda.io/miniconda.html
 ### Use Virtual Python Environment 
 
 **Creation of virtual environments**:
-- Python 3 already comes with everything to create a virtual environment.
-  Execute in the command line:
+- Python 3 already comes with everything to create a virtual environment. 
+  Make sure you select the python executable for the distribution that should serve 
+  as a root. In our example, execute in the command line:
   ```
-  /Users/alex/Development/Python/Python3.6-x64_Anaconda-5.2.0/bin/python
+  /Users/alex/Development/Python/Python3.6-x64_Anaconda-5.2.0/bin/python -m venv --symlinks <path-to-new-virtual-environment>
   ```
-  Make sure you select the correct python distribution that should serve 
-  as a root. 
 - On the command line, you can select a virtual environment by  
   ```
   source  <path-to-new-virtual-environment>/bin/activate
