@@ -212,3 +212,26 @@ https://conda.io/miniconda.html
    deactivate
    ```
    (further reading on virtual environments: https://docs.python.org/3/library/venv.html)
+
+### Install Dependencies into a Virtual Environment 
+
+- activate your virtual environment in a shell session
+  ```
+  source  <path-to-new-virtual-environment>/bin/activate
+  ```
+- stall dependency (as wheel; automatically downloaded ); example package `numpy`:
+  ```
+  pip install numpy
+  ```
+  You can also install a list of packages at once. Here an example of what I install by default
+  ```
+  pip install h5py numexpr Cython blosc tables numpy pandas scipy scikit-learn matplotlib
+
+  ```
+- you can also install a package from local file system (e.g. from a cloned git repository)
+  ```
+  pip install <path_to_package's_root_directory>
+  ```
+  The root directory should contain a file setup.py
+
+
