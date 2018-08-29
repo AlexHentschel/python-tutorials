@@ -91,7 +91,7 @@ I recommend PyCharm because:
 Get the latest PyCharm from [jetbrains](https://www.jetbrains.com/pycharm/).
    I found the `Community Edition` (free) to be fully sufficient.
    Installer is straight forward. If you are following my directory structure
-   outlines above, you could install it in
+   outlined above, you could install it in
    ```
    /Users/alex/Development/Python/pycharm
    ```
