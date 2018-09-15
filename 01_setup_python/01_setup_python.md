@@ -50,6 +50,15 @@ all common packages you will need for data science.
      /Users/alex/Development/Python/Python3.6-x64_Anaconda-5.2.0
      ```
      I recommend including Python version (3.6), hardware architecture (x64), distribution name (Anaconda) and version (5.2.0) in the folder name.
+
+     By default, Anaconda will install into
+     ```
+     /Users/<your_username>/anaconda3
+     ```
+     Which is fine, iuf you only keep one distribution. However, at later points, you might want to have multiple 
+     distributions in parallel, to be backwards compatible to execute your older code. Hence, my recommendation 
+     to create a separate folder.
+      
    - The installer asks if it should add the python version to your system `PATH`.
      Select according to your preferences.  
      In case you select `yes`, the installer will
